@@ -1,10 +1,3 @@
-<h1>Pass Data To Child Component</h1>
-<app-user [user]="userName" city="Ahmedabad"></app-user>
-
-<select #selectedUser (change)="onChangeUser(selectedUser.value)" name="" id="">
-    <option value="Isha">Isha</option>
-    <option value="Priyal">Priyal</option>
-    <option value="Riddhi">Riddhi</option>
-    <option value="Purva">Purva</option>
-    <option value="Shivani">Shivani</option>
-  </select>
+<h1>Custom Pipe in Angular</h1>
+<h2>{{amount | currencyConvertor}}</h2>
+<h2>{{amount | currencyConvertor:12}}</h2>

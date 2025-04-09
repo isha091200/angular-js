@@ -18,13 +18,8 @@ import { ProductService } from './service/product.service';
 })
 export class AppComponent {
 
-  userName='Isha Dadhania';
+  amount=10;
 
-  onChangeUser(user: string) {
-    this.userName = user;
-  }
-
-  users=['Isha','Priyal', 'Riddhi', 'Purva', 'Shivani'];
 
 
 }
