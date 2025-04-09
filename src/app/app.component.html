@@ -1,10 +1,6 @@
+<h1>Pass Data Child to Parent Component</h1>
+<app-user (getUsers)="handleUsers($event)"></app-user>
 
-<h1>Services</h1>
-
-<button (click)="getProductData()">Load Product Data</button>
-
-@for(item of productData; track item){
-    <div>
-        <h2>{{item.name}}, {{item.brach}}, {{item.price}}</h2>
-    </div>
+@for(user of users; track user){
+    <h1>{{user}}</h1>
 }

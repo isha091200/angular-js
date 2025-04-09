@@ -17,21 +17,12 @@ import { ProductService } from './service/product.service';
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  title = 'angular-training';
 
-  productData:{
-    name: string;
-    branch: string;
-    price: string;
-}[] | undefined;
-  constructor(private productService:ProductService){
-
+  users:undefined|string[];
+  handleUsers(users:string[]){
+    console.log(users)
+    this.users=users;
   }
 
-  getProductData(){
-    this.productData = this.productService.getProductData()
-    console.log(this.productData);
-    
-  }
 
 }
