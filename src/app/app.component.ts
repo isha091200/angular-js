@@ -18,11 +18,13 @@ import { ProductService } from './service/product.service';
 })
 export class AppComponent {
 
-  users:undefined|string[];
-  handleUsers(users:string[]){
-    console.log(users)
-    this.users=users;
+  userName='Isha Dadhania';
+
+  onChangeUser(user: string) {
+    this.userName = user;
   }
+
+  users=['Isha','Priyal', 'Riddhi', 'Purva', 'Shivani'];
 
 
 }

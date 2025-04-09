@@ -15,9 +15,9 @@ export class UserComponent {
 
   users = ['Isha', 'Priyal', 'Riddhi', 'Purva', 'Shivani'];
 
-  // ngOnInit() {
-  //   this.getUsers.emit(this.users);
-  // }
+  ngOnInit() {
+    this.getUsers.emit(this.users);
+  }
   loadData() {
     this.getUsers.emit(this.users);
   }

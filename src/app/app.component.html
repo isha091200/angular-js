@@ -1,6 +1,10 @@
-<h1>Pass Data Child to Parent Component</h1>
-<app-user (getUsers)="handleUsers($event)"></app-user>
+<h1>Pass Data To Child Component</h1>
+<app-user [user]="userName" city="Ahmedabad"></app-user>
 
-@for(user of users; track user){
-    <h1>{{user}}</h1>
-}
+<select #selectedUser (change)="onChangeUser(selectedUser.value)" name="" id="">
+    <option value="Isha">Isha</option>
+    <option value="Priyal">Priyal</option>
+    <option value="Riddhi">Riddhi</option>
+    <option value="Purva">Purva</option>
+    <option value="Shivani">Shivani</option>
+  </select>
