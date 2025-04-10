@@ -20,16 +20,16 @@ import { User } from './interfaces/User';
   })
   export class AppComponent {
 
-  task='';
-  taskList:{id:number,task:string}[] = [];
+  name = new FormControl('abc');
+  password = new FormControl('123');
 
-  addTaskList(){
-    this.taskList.push({id:this.taskList.length+1, task:this.task})
-    console.log(this.taskList);
+  displayValue(){
+    console.log(this.name.value,this.password.value)
   }
 
-  deleteTask(taskId:number){
-    this.taskList=this.taskList.filter((item)=>item.id!=taskId);
+  setValue(){
+    this.name.setValue('Isha');
+    this.password.setValue('Brain@2030');
   }
 
 

@@ -1,13 +1,15 @@
-<h2>To do List</h2>
-<br>
-<input type="text" placeholder="Enter your task" [(ngModel)]="task">
-<button (click)="addTaskList()">Add Task</button>
+<h1>Basic React Form</h1>
+<form action="" method="post">
+    <input type="text" placeholder="Enter name" [formControl] = 'name'>
+    <br>
+    <br>
+    <input type="text" placeholder="Enter password" [formControl] = 'password'>
+    <br>
+    <br>
+    <button type="button" (click)="displayValue()">Login</button>
+    <button type="button" (click)="setValue()">Set Values To Fields</button>
+    <br><br>
+    <h3>{{name.value}}</h3>
+    <h2>{{password.value}}</h2>
 
-@for(task of taskList; track task.id){
-    <ul class="task-list">
-        <li>{{task.id}}</li>
-        <li>{{task.task}}</li>
-        <li><button (click)="deleteTask(task.id)">Delete</button></li>
-
-    </ul>
-}
+</form>
