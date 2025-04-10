@@ -26,10 +26,25 @@ import { User } from './interfaces/User';
     }
 
     ngOnInit(){
+      this.getUser();
+    }
+
+    getUser(){
       this.userService.getUsers().subscribe((data:User[])=>{
         this.users = data
         console.log(data);
 
+      })
+    }
+    addUser(user:User){
+      console.log(user)
+      this.userService.saveUsers(user).subscribe((data:User)=>{
+        console.log(data);
+
+        if(data){
+          this.getUser();
+        }
+        
       })
     }
 
