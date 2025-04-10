@@ -9,6 +9,7 @@
   import { UserComponent } from './user/user.component';
   import { CurrencyConvertorPipe } from './pipe/currency-convertor.pipe';
   import { ProductService } from './service/product.service';
+import { UsersService } from './service/users.service';
 
   @Component({
     selector: 'app-root',
@@ -18,15 +19,16 @@
   })
   export class AppComponent {
 
-    productList:any;
-    constructor(private productService:ProductService){
+    users:any;
+    constructor(private userService:UsersService){
 
     }
 
     ngOnInit(){
-      this.productService.getProductList().subscribe((data:any)=>{
+      this.userService.getUsers().subscribe((data:any)=>{
+        this.users = data
         console.log(data);
-        this.productList = data.products
+
       })
     }
 
