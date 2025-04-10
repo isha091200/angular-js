@@ -48,4 +48,16 @@ import { User } from './interfaces/User';
       })
     }
 
+    deleteUser(id:string){
+      console.log(id);
+      this.userService.deleteUser(id).subscribe((data:User)=>{
+        console.log(data);
+        if(data){
+          this.getUser();
+        }
+        
+      })
+      
+    }
+
   }

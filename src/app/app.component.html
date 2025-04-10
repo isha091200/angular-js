@@ -3,18 +3,20 @@
 <form #userForm="ngForm" (ngSubmit)="addUser(userForm.value)">
     <input type="text" placeholder="Enter name" name="name" ngModel>
     <br><br>
-    <input type="text" placeholder="Enter age" name="email" ngModel>
+    <input type="text" placeholder="Enter age" name="age" ngModel>
     <br><br>
-    <input type="text" placeholder="Enter email" name="age" ngModel>
+    <input type="text" placeholder="Enter email" name="email" ngModel>
     <br><br>
     <button>Add User</button>
 </form>
 
 
-@for(user of users; track user.email){
+@for(user of users; track user.id){
     <ul>
         <li><b>Name: </b>{{user.name}}</li>
         <li><b>Age: </b>{{user.age}}</li>
         <li><b>Email: </b>{{user.email}}</li>
+        <li><button (click)="deleteUser(user.id)">Delete User</button></li>
+
     </ul>
 }
