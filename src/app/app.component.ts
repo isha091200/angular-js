@@ -20,11 +20,7 @@ import { User } from './interfaces/User';
   })
   export class AppComponent {
 
-  userDetail:any;
-  addDetails(val:NgForm){
-   console.log(val)
-   this.userDetail = val;
-  }
+
 
 
   }
