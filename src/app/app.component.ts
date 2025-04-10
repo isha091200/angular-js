@@ -10,6 +10,7 @@
   import { CurrencyConvertorPipe } from './pipe/currency-convertor.pipe';
   import { ProductService } from './service/product.service';
 import { UsersService } from './service/users.service';
+import { User } from './interfaces/User';
 
   @Component({
     selector: 'app-root',
@@ -19,13 +20,13 @@ import { UsersService } from './service/users.service';
   })
   export class AppComponent {
 
-    users:any;
+    users:User[]=[];
     constructor(private userService:UsersService){
 
     }
 
     ngOnInit(){
-      this.userService.getUsers().subscribe((data:any)=>{
+      this.userService.getUsers().subscribe((data:User[])=>{
         this.users = data
         console.log(data);
 

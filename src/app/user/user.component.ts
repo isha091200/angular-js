@@ -9,17 +9,7 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class UserComponent {
 
-  @Input() user:string='';
-  @Input() city:string='';
-  @Output() getUsers = new EventEmitter();
+  // @Input() counter = 0;
 
-  users = ['Isha', 'Priyal', 'Riddhi', 'Purva', 'Shivani'];
-
-  ngOnInit() {
-    this.getUsers.emit(this.users);
-  }
-  loadData() {
-    this.getUsers.emit(this.users);
-  }
 
 }
