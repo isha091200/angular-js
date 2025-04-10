@@ -1,3 +1,10 @@
-<h1>Custom Pipe in Angular</h1>
-<h2>{{amount | currencyConvertor}}</h2>
-<h2>{{amount | currencyConvertor:12}}</h2>
+<h1>API call Service</h1>
+
+@for(product of productList; track product.id){
+    <ul>
+        <li><b>Name: </b>{{product.title}}</li>
+        <li><b>Price: </b>{{product.price}}</li>
+        <li><b>Rating: </b>{{product.rating}}</li>
+        <li><b>Category: </b>{{product.category}}</li>
+    </ul>
+}
