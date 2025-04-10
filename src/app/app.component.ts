@@ -21,6 +21,7 @@ import { User } from './interfaces/User';
   export class AppComponent {
 
     users:User[]=[];
+    selectedUser:User|undefined;
     constructor(private userService:UsersService){
 
     }
@@ -37,15 +38,37 @@ import { User } from './interfaces/User';
       })
     }
     addUser(user:User){
-      console.log(user)
-      this.userService.saveUsers(user).subscribe((data:User)=>{
-        console.log(data);
 
-        if(data){
-          this.getUser();
-        }
+      if(!this.selectedUser){
+        console.log(user)
+        this.userService.saveUsers(user).subscribe((data:User)=>{
+          console.log(data);
+  
+          if(data){
+            this.getUser();
+          }
+          
+        })
+      }else{
+        const userData = {...user,id:this.selectedUser.id}
+        this.userService.updateUser(userData).subscribe((data)=>{
+          if(data){
+            console.log(data);
+            this.getUser();
+          }
+        })
         
-      })
+      }
+      // console.log(user)
+      // this.userService.saveUsers(user).subscribe((data:User)=>{
+      //   console.log(data);
+
+      //   if(data){
+      //     this.getUser();
+      //   }
+        
+      // })
+
     }
 
     deleteUser(id:string){
@@ -55,9 +78,17 @@ import { User } from './interfaces/User';
         if(data){
           this.getUser();
         }
-        
+
       })
       
+    }
+
+    selectUser(id:string){
+      console.log(id);
+      this.userService.getSelectedUser(id).subscribe((data:User)=>{
+        console.log(data);
+        this.selectedUser = data
+      })
     }
 
   }
