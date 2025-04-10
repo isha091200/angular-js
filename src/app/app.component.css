@@ -1,0 +1,29 @@
+/* button {
+
+    background: deepskyblue;
+    color: black;
+    margin: 50px;
+    padding: 20px;
+    border-radius: 20px;
+}
+
+h2{
+    text-align: center;
+}
+
+h3 {
+    text-align: center;
+} */
+div {
+    display: inline-block;
+} 
+
+.task-list{
+    display: flex;
+    justify-content: space-around;
+    list-style-type: none;
+}
+
+.error{
+    color: red;
+}

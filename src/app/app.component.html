@@ -1,29 +1,13 @@
-<h1>API call Service</h1>
+<h2>To do List</h2>
+<br>
+<input type="text" placeholder="Enter your task" [(ngModel)]="task">
+<button (click)="addTaskList()">Add Task</button>
 
-<form #userForm="ngForm" (ngSubmit)="addUser(userForm.value)">
-    <input type="text" placeholder="Enter name" name="name" [ngModel] = "selectedUser?.name" >
-    <br><br>
-    <input type="text" placeholder="Enter age" name="age" [ngModel] = "selectedUser?.age">
-    <br><br>
-    <input type="text" placeholder="Enter email" name="email" [ngModel] = "selectedUser?.email">
-    <br><br>
-    @if(!selectedUser){
-        <button>Add User</button>
-    }
-    @else{
-    <button>Update User</button>
-    }
-</form>
-
-
-@for(user of users; track user.id){
-    <ul>
-        <li><b>Name: </b>{{user.name}}</li>
-        <li><b>Age: </b>{{user.age}}</li>
-        <li><b>Email: </b>{{user.email}}</li>
-        <li><button (click)="deleteUser(user.id)">Delete User</button></li>
-        <li><button (click)="selectUser(user.id)">Update User</button></li>
-
+@for(task of taskList; track task.id){
+    <ul class="task-list">
+        <li>{{task.id}}</li>
+        <li>{{task.task}}</li>
+        <li><button (click)="deleteTask(task.id)">Delete</button></li>
 
     </ul>
 }

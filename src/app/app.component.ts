@@ -20,75 +20,17 @@ import { User } from './interfaces/User';
   })
   export class AppComponent {
 
-    users:User[]=[];
-    selectedUser:User|undefined;
-    constructor(private userService:UsersService){
+  task='';
+  taskList:{id:number,task:string}[] = [];
 
-    }
+  addTaskList(){
+    this.taskList.push({id:this.taskList.length+1, task:this.task})
+    console.log(this.taskList);
+  }
 
-    ngOnInit(){
-      this.getUser();
-    }
+  deleteTask(taskId:number){
+    this.taskList=this.taskList.filter((item)=>item.id!=taskId);
+  }
 
-    getUser(){
-      this.userService.getUsers().subscribe((data:User[])=>{
-        this.users = data
-        console.log(data);
-
-      })
-    }
-    addUser(user:User){
-
-      if(!this.selectedUser){
-        console.log(user)
-        this.userService.saveUsers(user).subscribe((data:User)=>{
-          console.log(data);
-  
-          if(data){
-            this.getUser();
-          }
-          
-        })
-      }else{
-        const userData = {...user,id:this.selectedUser.id}
-        this.userService.updateUser(userData).subscribe((data)=>{
-          if(data){
-            console.log(data);
-            this.getUser();
-          }
-        })
-        
-      }
-      // console.log(user)
-      // this.userService.saveUsers(user).subscribe((data:User)=>{
-      //   console.log(data);
-
-      //   if(data){
-      //     this.getUser();
-      //   }
-        
-      // })
-
-    }
-
-    deleteUser(id:string){
-      console.log(id);
-      this.userService.deleteUser(id).subscribe((data:User)=>{
-        console.log(data);
-        if(data){
-          this.getUser();
-        }
-
-      })
-      
-    }
-
-    selectUser(id:string){
-      console.log(id);
-      this.userService.getSelectedUser(id).subscribe((data:User)=>{
-        console.log(data);
-        this.selectedUser = data
-      })
-    }
 
   }
